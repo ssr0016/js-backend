@@ -5,7 +5,8 @@ import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import { createTables } from "./utils/createTables.js";
 import { errorMiddleware } from "./middlewares/errorMiddlewares.js";
-import authRoutes from "./router/authRoutes.js";
+import authRouter from "./router/authRoutes.js";
+import productRouter from "./router/productRoutes.js";
 
 const app = express();
 
@@ -31,7 +32,8 @@ app.use(
 );
 
 // routes
-app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/product", productRouter);
 
 // tables migration
 createTables();
