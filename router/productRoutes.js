@@ -3,8 +3,8 @@ import {
   createProduct,
   fetchAllProducts,
   updateProduct,
-  //   deleteProduct,
-  //   fetchSingleProduct,
+  deleteProduct,
+  fetchSingleProduct,
   //   postProductReview,
   //   deleteReview,
   //   fetchAIFilteredProducts,
@@ -23,7 +23,7 @@ router.post(
   createProduct
 );
 router.get("/", fetchAllProducts);
-// router.get("/singleProduct/:productId", fetchSingleProduct);
+router.get("/singleProduct/:productId", fetchSingleProduct);
 // router.put("/post-new/review/:productId", isAuthenticated, postProductReview);
 // router.delete("/delete/review/:productId", isAuthenticated, deleteReview);
 router.put(
@@ -32,12 +32,12 @@ router.put(
   authorizedRoles("Admin"),
   updateProduct
 );
-// router.delete(
-//   "/admin/delete/:productId",
-//   isAuthenticated,
-//   authorizedRoles("Admin"),
-//   deleteProduct
-// );
+router.delete(
+  "/admin/delete/:productId",
+  isAuthenticated,
+  authorizedRoles("Admin"),
+  deleteProduct
+);
 // router.post("/ai-search", isAuthenticated, fetchAIFilteredProducts);
 
 export default router;
