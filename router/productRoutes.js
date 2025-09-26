@@ -1,8 +1,8 @@
 import express from "express";
 import {
   createProduct,
-  //   fetchAllProducts,
-  //   updateProduct,
+  fetchAllProducts,
+  updateProduct,
   //   deleteProduct,
   //   fetchSingleProduct,
   //   postProductReview,
@@ -22,16 +22,16 @@ router.post(
   authorizedRoles("Admin"),
   createProduct
 );
-// router.get("/", fetchAllProducts);
+router.get("/", fetchAllProducts);
 // router.get("/singleProduct/:productId", fetchSingleProduct);
 // router.put("/post-new/review/:productId", isAuthenticated, postProductReview);
 // router.delete("/delete/review/:productId", isAuthenticated, deleteReview);
-// router.put(
-//   "/admin/update/:productId",
-//   isAuthenticated,
-//   authorizedRoles("Admin"),
-//   updateProduct
-// );
+router.put(
+  "/admin/update/:productId",
+  isAuthenticated,
+  authorizedRoles("Admin"),
+  updateProduct
+);
 // router.delete(
 //   "/admin/delete/:productId",
 //   isAuthenticated,
